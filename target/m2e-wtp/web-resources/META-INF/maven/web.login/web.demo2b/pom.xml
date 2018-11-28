@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.demo</groupId>
+	<groupId>web.login</groupId>
 	<artifactId>web.demo2b</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.47</version>
+			<version>6.0.6</version>
 		</dependency>
 
 		<dependency>
@@ -35,7 +35,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>web.demo2b</finalName>
+		<finalName>web.login</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

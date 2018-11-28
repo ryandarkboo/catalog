@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.demo.bean.Product;
+import com.demo.bean.ProductBook;
 import com.demo.dao.AccountHolderDAO;
 import com.demo.util.DatabaseConfig;
 
-@WebServlet("/book")
+@WebServlet(urlPatterns="/book")
 public class Book extends HttpServlet {
 
 	private AccountHolderDAO accountHolderDAO;
@@ -37,8 +37,8 @@ public class Book extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/displayProductList.jsp");
-		List<Product> products = accountHolderDAO.Book();
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/displayProductBook.jsp");
+		List<ProductBook> products = accountHolderDAO.getBook();
 		request.setAttribute("ProductList", products);
 		dispatcher.forward(request, response);
 	}

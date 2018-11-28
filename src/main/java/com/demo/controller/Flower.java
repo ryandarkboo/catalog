@@ -14,7 +14,7 @@ import com.demo.bean.Product;
 import com.demo.dao.AccountHolderDAO;
 import com.demo.util.DatabaseConfig;
 
-@WebServlet("/flower")
+@WebServlet(urlPatterns="/flower", loadOnStartup = 1)
 public class Flower extends HttpServlet{
 
 	private AccountHolderDAO accountHolderDAO;
@@ -37,7 +37,7 @@ public class Flower extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/displayProductList.jsp");
-		List<Product> products = accountHolderDAO.Product();
+		List<Product> products = accountHolderDAO.getFlower();
 		request.setAttribute("ProductList", products);
 		dispatcher.forward(request, response);
 	}

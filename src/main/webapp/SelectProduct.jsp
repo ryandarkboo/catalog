@@ -1,15 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ page language="java" isELIgnored="false"%>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Catalog</title>
 </head>
 <body>
 	<label>Select Catalog</label>
-	<a href="${pageContext.servletContext.contextPath}/flower">Flower Catalog</a>
-	<a href="${pageContext.servletContext.contextPath}/book">Book Catalog</a>
-	<a href="${pageContext.servletContext.contextPath}/toy">Toy Catalog</a>
+	<br />
+	<a href="${pageContext.servletContext.contextPath}/flower" method="post">Flower Catalog</a>
+	<a href="${pageContext.servletContext.contextPath}/book" method="post">Book Catalog</a>
+	<a href="${pageContext.servletContext.contextPath}/toy" method="post">Toy Catalog</a>
+
 </body>
 </html>

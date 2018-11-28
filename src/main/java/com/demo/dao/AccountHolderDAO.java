@@ -28,7 +28,7 @@ public class AccountHolderDAO {
 		initializeConnection();
 	}
 
-	public List<Product> Product() {
+	public List<Product> getFlower() {
 		List<Product> products = new ArrayList<>();
 
 		try {
@@ -49,15 +49,15 @@ public class AccountHolderDAO {
 		return products;
 	}
 	
-	public List<Product> Book() {
+	public List<Product> getToy() {
 		List<Product> products = new ArrayList<>();
 
 		try {
 			final Connection conn = getConnection();
-			PreparedStatement selectAccountSql = conn.prepareStatement("SELECT BID, Title, BookDesc, AID, BookPrice FROM webshoppe.booksdetails");
+			PreparedStatement selectAccountSql = conn.prepareStatement("SELECT TID, TName, TDesc, TPrice FROM webshoppe.toysdetails");
 			final ResultSet result = selectAccountSql.executeQuery();
 			while (result.next()) {
-				Product product = new ProductBook(result.getString(1), result.getString(2), result.getString(3), result.getInt(4), result.getString(5));
+				Product product = new Product(result.getString(1), result.getString(2), result.getString(3), result.getInt(4));
 				products.add(product);
 			}
 
@@ -69,6 +69,28 @@ public class AccountHolderDAO {
 
 		return products;
 	}
+	
+	public List<ProductBook> getBook() {
+		List<ProductBook> products = new ArrayList<>();
+
+		try {
+			final Connection conn = getConnection();
+			PreparedStatement selectAccountSql = conn.prepareStatement("SELECT BID, Title, BookDesc, BookPrice, AID FROM webshoppe.booksdetails");
+			final ResultSet result = selectAccountSql.executeQuery();
+			while (result.next()) {
+				ProductBook product = new ProductBook(result.getString(1), result.getString(2), result.getString(3), result.getInt(4), result.getString(5));
+				products.add(product);
+			}
+
+			selectAccountSql.close();
+			result.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return products;
+	}
+	
 
 	private void loadDriver() {
 		try {
